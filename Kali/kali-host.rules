@@ -1,2 +1,2 @@
-alert udp any any -> any 67 (msg: "KALI LINUX HOST: DHCP request from machine with hostname 'kali' detected"; content: "kali"; nocase; nocase;)
-#alert udp any any -> any 67 (msg: "KALI LINUX HOST: DHCP request from machine with hostname 'kali' detected"; content: "kali"; nocase; offset:57; depth:4; nocase;)
+alert udp any any -> any 67 (msg: "KALI LINUX HOST: DHCP request from machine with hostname 'kali' detected"; content: "kali"; nocase;)
+# alert udp any any -> any 67 (msg: "KALI LINUX HOST: DHCP request from machine with hostname 'kali' detected"; content: "kali"; nocase; offset:57; depth:4; nocase;)
