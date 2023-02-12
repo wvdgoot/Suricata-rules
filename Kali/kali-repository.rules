@@ -1,0 +1,14 @@
+# Maybe the domains can be automated by writing a script that regularly attempts 
+# to update with Kali repositories and adds all the urls to this list of rules
+
+# HTTP request
+alert http any any -> any any (msg:"KALI LINUX REPO: HTTP request to host http.kali.org"; content:"http.kali.org"; http.uri;)
+alert http any any -> any any (msg:"KALI LINUX REPO: HTTP request to host kali.download"; content:"kali.download"; http.uri;)
+
+# TLS packet
+alert tls any any -> any any (msg:"KALI LINUX REPO: TLS packet with http.kali.org in SNI: "; content:"http.kali.org"; nocase; tls_sni;)
+alert tls any any -> any any (msg:"KALI LINUX REPO: TLS packet with kali.download in SNI: "; content:"kali.download"; nocase; tls_sni;)
+
+# DNS query
+alert dns any any -> any 53 (msg:"KALI LINUX REPO: DNS query to http.kali.org"; content:"http.kali.org"; nocase; dns_query;)
+alert dns any any -> any 53 (msg:"KALI LINUX REPO: DNS query to kali.download"; content:"kali.download"; nocase; dns_query;)
